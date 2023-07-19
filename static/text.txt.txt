@@ -1,0 +1,3 @@
+tis is a test - tis is a static site
+it uses for images and code or files can visible to others
+tip: never store sensitive files in it.
