@@ -4,6 +4,7 @@ from home.models import Contact
 from django.contrib import messages
 
 
+
 # Create your views here.
 def index(request):
     context={'variable':"this is sent"}
@@ -18,20 +19,21 @@ def services(request):
     #return HttpResponse('this is services page')
     return render(request, 'services.html')
 
-def Gallery(request):
+def gallery(request):
     #return HttpResponse('this is about page')
-    return render(request, 'services.html')
+    return render(request, 'gallery.html')
 
 def contact(request):
-
     if request.method == "POST":
         name =  request.POST.get('name')
         email = request.POST.get('email')
         phone = request.POST.get('phone')
         desc =  request.POST.get('desc')
-        print("------------>>>>>",name, email, phone, desc,datetime.today())
+        # print('---------->> name=name, email=email, phone=phone, desc=desc, date=datetime.today()')
         contact = Contact(name=name, email=email, phone=phone, desc=desc, date=datetime.today())
         contact.save()
-        messages.success(request,'your form sucessfully updated')
-    return render(request, 'contact.html') 
-          
+        
+        messages.success(request, 'Your form has been successfully updated')
+    
+    return render(request, 'contact.html')
+
